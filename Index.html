@@ -1,1 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Anniversary Journey</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
 
+        body {
+            background-color: #f8f0f2;
+            color: #333;
+            line-height: 1.8;
+        }
+
+        /* Hero Section with Photo Collage */
+        .hero-section {
+            position: relative;
+            height: 400px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 30px;
+        }
+
+        .photo-collage {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5px;
+            opacity: 0.85;
+        }
+
+        .collage-photo {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .hero-overlay {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            background: rgba(255,255,255,0.8);
+            padding: 20px 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .hero-overlay h1 {
+            color: #c23373;
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+
+        .hero-overlay p {
+            color: #555;
+            font-size: 18px;
+            font-weight: 500;
+        }
+
+        /* Letter Container */
+        .letter-container {
+            max-width: 600px;
+            width: 90%;
+            margin: 0 auto 40px;
+            background: #fff;
+            padding: 30px 25px;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(194, 51, 115, 0.1);
+        }
+
+        .letter-header {
+            text-align: center;
+            margin-bottom: 25px;
+            border-bottom: 2px solid #f8d7da;
+            padding-bottom: 15px;
+        }
+
+        .letter-header h2 {
+            color: #c23373;
+            margin-bottom: 5px;
+        }
+
+        .letter-body {
+            font-size: 16px;
+            margin-bottom: 25px;
+        }
+
+        .letter-body p {
+            margin-bottom: 15px;
+        }
+
+        /* Highlighted Photo Section */
+        .highlight-photo-section {
+            text-align: center;
+            margin: 30px 0;
+        }
+
+        .highlight-photo {
+            max-width: 80%;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .highlight-photo:hover {
+            transform: scale(1.02);
+        }
+
+        .photo-caption {
+            margin-top: 10px;
+            color: #666;
+            font-style: italic;
+        }
+
+        /* Signature */
+        .letter-signature {
+            text-align: right;
+            color: #c23373;
+            font-weight: 500;
+            font-style: italic;
+            margin-top: 20px;
+        }
+
+        /* Interactive Button */
+        .anniversary-button {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            background-color: #c23373;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 17px;
+            cursor: pointer;
+            margin-top: 25px;
+            transition: background-color 0.3s ease;
+        }
+
+        .anniversary-button:hover {
+            background-color: #a02860;
+        }
+
+        /* Modal for Enlarged Photo */
+        .photo-modal {
+            display: none;
+            position: fixed;
+            z-index: 10;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.8);
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .modal-content {
+            max-width: 90%;
+            max-height: 80%;
+            border-radius: 10px;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            color: white;
+            font-size: 35px;
+            cursor: pointer;
+        }
+
+        /* Countdown Timer */
+        .countdown-section {
+            text-align: center;
+            margin-top: 30px;
+            padding: 15px;
+            background-color: #f8d7da;
+            border-radius: 8px;
+            color: #721c24;
+        }
+
+        .countdown-section h3 {
+            margin-bottom: 10px;
+        }
+
+        #countdown {
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        /* Mobile Adjustments */
+        @media (max-width: 480px) {
+            .hero-section {
+                height: 300px;
+            }
+
+            .hero-overlay h1 {
+                font-size: 24px;
+            }
+
+            .hero-overlay p {
+                font-size: 16px;
+            }
+
+            .letter-container {
+                padding: 20px 15px;
+            }
+
+            .highlight-photo {
+                max-width: 95%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section with Photo Collage -->
+    <div class="hero-section">
+        <div class="photo-collage">
+            <img src="photo1.jpg" alt="Our Memory 1" class="collage-photo"> <!-- Replace with your first photo path -->
+            <img src="photo2.jpg" alt="Our Memory 2" class="collage-photo"> <!-- Replace with your second photo path -->
+        </div>
+        <div class="hero-overlay">
+            <h1>Our [X]th Anniversary</h1> <!-- Replace [X] with your anniversary number -->
+            <p>Celebrating Every Moment We've Shared</p>
+        </div>
+    </div>
+
+    <!-- Main Letter Container -->
+    <div class="letter-container">
+        <div class="letter-header">
+            <h2>To My Forever Love,</h2>
+            <p>April 1, 2026 </p>
+        </div>
+
+        <div class="letter-body">
+            <p>Happy Anniversary, my love!</p>
+
+            <p>Looking back at these photos from that special day we took them – I still remember how bright your smile was, how warm it felt to be by your side. Every moment since then has only made me fall more in love with you.</p>
+
+            <div class="highlight-photo-section">
+                <img src="photo1.jpg" alt="That Day We Celebrated" class="highlight-photo" id="enlargePhoto"> <!-- Replace with your preferred photo path -->
+                <p class="photo-caption">That day you surprised me with the bouquet – I’ll never forget how my heart raced!</p>
+            </div>
+
+            <p>From our silly laughs to our quiet cuddles, from overcoming challenges together to celebrating every win big and small – you’ve made every second of our journey worth living. You’re my home, my peace, and my greatest adventure.</p>
+
+            <p>As we mark another year of us, I want you to know that my love for you grows stronger with each passing day. I promise to keep cherishing you, protecting you, and loving you with all that I am.</p>
+        </div>
+
+        <!-- Countdown to Next Anniversary -->
+        <div class="countdown-section">
+            <h3>Countdown to Our Next Anniversary!</h3>
+            <div id="countdown"></div>
+        </div>
+
+        <div class="letter-signature">
+            <p>Yours Now and Always,</p>
+            <p>Miel</p>
+        </div>
+
+        <button class="anniversary-button" id="surpriseBtn">Tap For My Special Promise To You</button>
+
+        <!-- Hidden Surprise Message -->
+        <div id="surpriseMessage" style="display:none; margin-top:20px; padding:15px; background:#f8d7da; border-radius:8px; text-align:center; color:#721c24;">
+            <p>I promise to plan more adventures for us, to make you laugh every single day, and to spend the rest of my life making you feel as loved as you make me feel. I LOVE YOU TO THE MOON AND BACK! 💖</p>
+        </div>
+    </div>
+
+    <!-- Photo Modal -->
+    <div class="photo-modal" id="photoModal">
+        <span class="close-modal" id="closeModal">&times;</span>
+        <img class="modal-content" id="modalImage">
+    </div>
+
+    <script>
+        // Replace with your next anniversary date (YYYY, MM-1, DD)
+        const nextAnniversary = new Date(2027, 1, 27); // February is month 1 in JS
+
+        // Countdown Timer Function
+        function updateCountdown() {
+            const now = new Date();
+            const diff = nextAnniversary - now;
+            
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+            
+            document.getElementById('countdown').innerText = 
+                `${days}d ${hours}h ${minutes}m ${seconds}s`;
+        }
+
+        // Update countdown every second
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+
+        // Surprise Button Function
+        const surpriseBtn = document.getElementById('surpriseBtn');
+        const surpriseMessage = document.getElementById('surpriseMessage');
+        
+        surpriseBtn.addEventListener('click', () => {
+            if (surpriseMessage.style.display === 'none' || surpriseMessage.style.display === '') {
+                surpriseMessage.style.display = 'block';
+                surpriseBtn.textContent = 'You’re My Everything';
+            } else {
+                surpriseMessage.style.display = 'none';
+                surpriseBtn.textContent = 'Tap For My Special Promise To You';
+            }
+        });
+
+        // Photo Modal Functions
+        const modal = document.getElementById('photoModal');
+        const modalImg = document.getElementById('modalImage');
+        const enlargePhoto = document.getElementById('enlargePhoto');
+        const closeModal = document.getElementById('closeModal');
+
+        enlargePhoto.addEventListener('click', () => {
+            modal.style.display = 'flex';
+            modalImg.src = enlargePhoto.src;
+            modalImg.alt = enlargePhoto.alt;
+        });
+
+        closeModal.addEventListener('click', () => {
+            modal.style.display = 'none';
+        });
+
+        // Close modal when clicking outside image
+        window.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.style.display = 'none';
+            }
+        });
+
+        // Add subtle heart animation on load
+        window.addEventListener('load', () => {
+            const createSmallHeart = () => {
+                const heart = document.createElement('div');
+                heart.textContent = '❤️';
+                heart.style.position = 'fixed';
+                heart.style.top = '-10px';
+                heart.style.left = Math.random() * 100 + 'vw';
+                heart.style.fontSize = '12px';
+                heart.style.color = '#c23373';
+                heart.style.opacity = 0.6;
+                heart.style.transition = 'top 4s linear, opacity 4s linear';
+                
+                document.body.appendChild(heart);
+                
+                setTimeout(() => {
+                    heart.style.top = '100vh';
+                    heart.style.opacity = 0;
+                }, 10);
+                
+                setTimeout(() => {
+                    heart.remove();
+                }, 4000);
+            };
+
+            for (let i = 0; i < 20; i++) {
+                setTimeout(createSmallHeart, i * 300);
+            }
+        });
+    </script>
+</body>
+  </html>
